@@ -9,13 +9,14 @@ i2c = machine.I2C(-1, scl=machine.Pin(32), sda=machine.Pin(33))
 oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 symbols = "abcdefghijklmnopqrstuvwxyz0123456789#!?%&$"
 
-def progress_bar(progress, total, x=0, y=40, width=128, height=10):
+
+def progress_bar(progress, total, x=0, y=35, width=128, height=10):
     oled.rect(x, y, width, height, 1)
     inner_width = int((progress / total) * (width - 2))
     oled.fill_rect(x + 1, y + 1, inner_width, height - 2, 1)
 
 def create_progress(text, offset, sleep_timer):
-    oled.text(text, offset, 30)
+    oled.text(text, offset, 25)
     for progress in range(101):
         progress_bar(progress, 100)
         oled.show()
