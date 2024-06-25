@@ -5,7 +5,7 @@ import random
 import time
 
 
-i2c = machine.I2C(-1, scl=machine.Pin(32), sda=machine.Pin(33))
+i2c = machine.SoftI2C(-1, scl=machine.Pin(32), sda=machine.Pin(33))
 oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 symbols = "abcdefghijklmnopqrstuvwxyz0123456789#!?%&$"
 
